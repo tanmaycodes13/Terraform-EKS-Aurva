@@ -13,7 +13,7 @@ variable "instance_type" {
 variable "vpc_security_group_ids" {
   type = list
   description = "List of VPC groups"
-  default = ["sg-09467f0a4e4bcb540"]
+  default = ["sg-09d5995558dadc6b9"]
 }
 
 variable "region" {

@@ -15,10 +15,6 @@ resource "aws_launch_template" "aurva-tf" {
 
   vpc_security_group_ids = var.vpc_security_group_ids
 
-  placement {
-    availability_zone = "us-west-2a"
-  }
-
   image_id = var.image_id
   instance_type = var.instance_type
 
