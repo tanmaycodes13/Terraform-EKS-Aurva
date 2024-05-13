@@ -17,5 +17,4 @@ variable "region" {
 
 variable "security_groups" {
   type = list(string)
-  default = ["sg-0b0519ac6d294865b"]
 }

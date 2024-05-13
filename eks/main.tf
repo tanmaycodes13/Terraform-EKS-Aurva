@@ -2,10 +2,6 @@ provider "aws" {
   region = "us-west-2"
 }
 
-module "launch_template" {
-    source = "../launch_template"
-}
-
 module "cluster_iam_role" {
     source = "../iam/cluster"
 }
@@ -20,6 +16,11 @@ resource "aws_eks_cluster" "aurva_k8s" {
     subnet_ids = var.subnet_ids
   }
   role_arn = module.cluster_iam_role.aws_iam_role
+}
+
+module "launch_template" {
+    source = "../launch_template"
+    security_groups = aws_eks_cluster.aurva_k8s.vpc_config[*].cluster_security_group_id
 }
 
 resource "aws_eks_node_group" "k8s_node_group" {
