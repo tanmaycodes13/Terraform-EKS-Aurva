@@ -4,7 +4,7 @@ Terraform state management via s3 as backend -> Defined in terraform.tf
 
 Modules -> iam , launch_template 
 
-Both the modules in eks folder
+Both the modules are being used in eks section
 
 ```
 cd eks
