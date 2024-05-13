@@ -38,4 +38,8 @@ resource "aws_eks_node_group" "k8s_node_group" {
     id = module.launch_template.launch_template_id
     version = module.launch_template.launch_template__latest_version
   }
+
+  tags = {
+    "kubernetes.io/cluster/aurva_k8s" = "owned"
+  }
 }

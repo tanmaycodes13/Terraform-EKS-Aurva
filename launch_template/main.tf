@@ -13,7 +13,9 @@ resource "aws_launch_template" "aurva-tf" {
     }
   }
 
-  vpc_security_group_ids = var.vpc_security_group_ids
+  network_interfaces {
+    security_groups = var.security_groups
+  }
 
   image_id = var.image_id
   instance_type = var.instance_type
@@ -27,5 +29,6 @@ resource "aws_launch_template" "aurva-tf" {
     tags = {
         Name = "Aurav-test"
     }  
-  } 
+  }
+  user_data = filebase64("${path.module}/userdata.sh")
 }
